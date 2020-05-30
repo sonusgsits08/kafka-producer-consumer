@@ -10,7 +10,8 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/* To successfully run producer zookeeper,kafka server, kafka console consumer should be up & running
+ * */
 public class ProducerDemo 
 {
 	static final Logger logger = LoggerFactory.getLogger(ProducerDemo.class);
@@ -25,7 +26,8 @@ public class ProducerDemo
     	
     	
     	KafkaProducer<String, String> producer = new KafkaProducer<String, String>(prop);
-    	
+    	//int i=0;
+    	//while(true) {
     	for(int i=0;i<10;i++) {
     		ProducerRecord<String, String> record = new ProducerRecord<String, String>(topic, message+":"+i);	
         	producer.send(record,new Callback() {    			
